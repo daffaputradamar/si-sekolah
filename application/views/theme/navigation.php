@@ -7,14 +7,15 @@
                         <div class="logo">
                             <a href="<?php echo base_url(''); ?>">
                                 <div class="d-flex align-items-center">
-                                    <img src="<?php echo base_url(''); ?>style/img/sma-bayat-logo.png" alt="logo sekolah" height="60">
-                                    <h3 class="ml-3">SMA NEGERI 1 BAYAT - KLATEN</h3>
+                                    <img src="<?php echo base_url(''); ?>style/img/sma-bayat-logo.png" alt="logo sekolah" style="max-height:50px; max-width:40px">
+                                    <h4 class="ml-3 d-md-block d-none">SMA NEGERI 1 BAYAT - KLATEN</h4>
+                                    <h6 class="ml-3 d-md-none d-sm-block">SMA NEGERI 1 BAYAT</h6>
                                 </div>
                             </a>
                         </div>
                     </div>
                     <div class="header_right d-flex align-items-center">
-                        <div class="main-menu  d-none d-lg-block">
+                        <div class="main-menu d-none d-lg-block">
                             <nav>
                                 <ul id="navigation">
                                     <li><a href="<?php echo base_url(''); ?>">Beranda</a></li>

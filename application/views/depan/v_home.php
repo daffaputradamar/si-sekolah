@@ -57,10 +57,11 @@ function limit_words($string, $word_limit)
                                 <h4><?php echo $row->tulisan_judul; ?></h4>
                             </a>
                             <p><?php echo limit_words($row->tulisan_isi, 10) . '...'; ?></p>
-                            <p class="d-flex align-items-center"> <span><i class="flaticon-calendar-1"></i> <?php echo $row->tanggal; ?></span>
-
-                                <span> <i class="flaticon-comment"></i> 01 comments</span>
-                            </p>
+                            <div class="d-flex align-items-center mt-2">
+                                <i class="fa fa-calendar mr-2"></i>
+                                <p><?php echo $row->tanggal; ?></p>
+                                <!-- <span> <i class="flaticon-comment"></i> 01 comments</span> -->
+                            </div>
                         </div>
                     </div>
                 </div>

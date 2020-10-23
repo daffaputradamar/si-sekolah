@@ -27,14 +27,30 @@
                 <div class="col-xl-3 col-md-6 col-lg-3">
                     <div class="footer_widget">
                         <h3 class="footer_title">
-                            Lainnya
+                            Kontak Kami
                         </h3>
-                        <ul>
-                            <li><a href="<?php echo site_url('guru'); ?>">Daftar Guru</a></li>
-                            <li><a href="<?php echo site_url('pengumuman'); ?>">Pengumuman</a></li>
-                            <li><a href="<?php echo site_url('agenda'); ?>">Agenda</a></li>
-                            <li><a href="<?php echo site_url('download'); ?>">Download File</a></li>
-                        </ul>
+
+                        <div class="media contact-info">
+                            <span class="contact-info__icon"><i class="ti-home"></i></span>
+                            <div class="media-body">
+
+                                <p>SMAN 1 BAYAT - KLATEN</p>
+                            </div>
+                        </div>
+                        <div class="media contact-info">
+                            <span class="contact-info__icon"><i class="ti-tablet"></i></span>
+                            <div class="media-body">
+
+                                <p>Hub : 0812 3386 1720 </p>
+                            </div>
+                        </div>
+                        <div class="media contact-info">
+                            <span class="contact-info__icon"><i class="ti-email"></i></span>
+                            <div class="media-body">
+
+                                <p>sman1-bayat@sch.id</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="col-xl-3 col-md-6 col-lg-3">

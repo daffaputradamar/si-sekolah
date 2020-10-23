@@ -36,7 +36,7 @@
     <!-- header-start -->
     <header>
         <div class="header-area ">
-            <?php $this->load->view('theme/header'); ?>
+            <!-- <?php $this->load->view('theme/header'); ?> -->
             <?php $this->load->view('theme/navigation'); ?>
         </div>
     </header>
