@@ -21,7 +21,7 @@
                                     <li><a href="#">Profile <i class="ti-angle-down"></i></a>
                                         <ul class="submenu">
                                             <li><a href="<?php echo site_url('about'); ?>">Tentang Sekolah</a></li>
-                                            <li><a href="<?php echo site_url('visimisi'); ?>">Visi Misi</a></li>
+                                            <li><a href="<?php echo site_url('visi_misi'); ?>">Visi Misi</a></li>
                                             <li><a href="<?php echo site_url('kepsek'); ?>">Kepala Sekolah</a></li>
                                             <li><a href="<?php echo site_url('guru'); ?>">Daftar Guru</a></li>
                                             <!-- <li><a href="<?php echo site_url('contact'); ?>">Kontak Kami</a></li> -->

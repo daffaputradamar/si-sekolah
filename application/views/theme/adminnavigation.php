@@ -93,7 +93,7 @@
   </li>
 
   <li class="nav-item">
-    <a class="nav-link" href="<?php echo base_url() . 'admin/bukutamu' ?>">
+    <a class="nav-link" href="<?php echo base_url() . 'admin/buku_tamu' ?>">
       <i class="fas fa-fw fa-comments"></i>
       <span>Pesan Pengunjung</span></a>
   </li>
