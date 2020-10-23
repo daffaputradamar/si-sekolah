@@ -16,7 +16,7 @@ function limit_words($string, $word_limit)
                             <div class="slider_text ">
                                 <h1 class="text-center text-white"><?= $row->tulisan_judul ?> </h1>
                                 <div class="text-center mt-5">
-                                    <a class="btn btn-lg btn-warning">Lihat Berita</a>
+                                    <a class="btn btn-lg btn-warning" href="<?php echo site_url('artikel/' . $row->tulisan_slug); ?>">Lihat Berita</a>
                                 </div>
                             </div>
                         </div>
