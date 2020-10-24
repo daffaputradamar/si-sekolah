@@ -106,7 +106,7 @@ function limit_words($string, $word_limit)
                         <div class="col-lg-4 col-md-6">
                             <div class="single__program">
                                 <div class="program_thumb">
-                                    <img src="img/program/1.png" alt="">
+                                    <!-- <img src="img/program/1.png" alt=""> -->
                                 </div>
                                 <div class="program__content">
                                     <span><?php echo $row->tanggal; ?></span>

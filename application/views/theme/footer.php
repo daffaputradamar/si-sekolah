@@ -8,7 +8,7 @@
                         <h3 class="footer_title">
                             Tentang Kami
                         </h3>
-                        <img width="150" src="<?php echo base_url(''); ?>style/img/sma-bayat-logo.png" class="rounded" alt="Muris Studio">
+                        <img src="<?php echo base_url(''); ?>style/img/sma-bayat-logo.png" class="rounded" alt="logo sekolah" style="width:160px; max-height: 200px">
                     </div>
                 </div>
                 <div class="col-xl-3 col-md-6 col-lg-3">

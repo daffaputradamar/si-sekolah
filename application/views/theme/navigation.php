@@ -7,9 +7,9 @@
                         <div class="logo">
                             <a href="<?php echo base_url(''); ?>">
                                 <div class="d-flex align-items-center">
-                                    <img src="<?php echo base_url(''); ?>style/img/sma-bayat-logo.png" alt="logo sekolah" style="max-height:50px; max-width:40px">
+                                    <img src="<?php echo base_url(''); ?>style/img/sma-bayat-logo.png" alt="logo sekolah" style="max-height:60px; max-width:50px; min-width:50px">
                                     <h4 class="ml-3 d-md-block d-none">SMA NEGERI 1 BAYAT - KLATEN</h4>
-                                    <h6 class="ml-3 d-md-none d-sm-block">SMA NEGERI 1 BAYAT</h6>
+                                    <h5 class="ml-3 d-md-none d-sm-block mt-1">SMA NEGERI 1 BAYAT</h5>
                                 </div>
                             </a>
                         </div>
@@ -45,10 +45,10 @@
 
                     </div>
                 </div>
-            </div>
-            <div class="col-12">
                 <div class="mobile_menu d-block d-lg-none"></div>
             </div>
+            <!-- <div class="col-12">
+            </div> -->
         </div>
     </div>
 </div>
