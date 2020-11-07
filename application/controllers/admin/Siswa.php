@@ -130,9 +130,9 @@ class Siswa extends CI_Controller
 	function hapus_siswa()
 	{
 		$kode = $this->input->post('kode');
-		$gambar = $this->input->post('gambar');
-		$path = './assets/images/' . $gambar;
-		unlink($path);
+		// $gambar = $this->input->post('gambar');
+		// $path = './assets/images/' . $gambar;
+		// unlink($path);
 		$this->m_siswa->hapus_siswa($kode);
 		echo $this->session->set_flashdata('msg', 'success-hapus');
 		redirect('admin/siswa');
