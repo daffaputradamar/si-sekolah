@@ -24,7 +24,7 @@
             <div class="card-body">
 
                 <div class="box-header">
-                    <a href="" class="btn btn-success btn-flat" data-toggle="modal" data-target="#myModal"><span class="fa fa-plus"></span> Tambah Data Guru</a>
+                    <a href="" class="btn btn-success btn-flat" data-toggle="modal" data-target="#myModal"><span class="fa fa-plus"></span> Tambah Data Guru / Staff</a>
                 </div><br>
 
                 <div class="table-responsive">
@@ -34,9 +34,7 @@
                                 <th>Photo</th>
                                 <th>NIP</th>
                                 <th>Nama</th>
-                                <th>Tempat/Tgl Lahir</th>
-                                <th>Jenis Kelamin</th>
-                                <th>Mata Pelajaran</th>
+                                <th>Jabatan</th>
                                 <th style="text-align:right;">Aksi</th>
                             </tr>
                         </thead>
@@ -48,28 +46,19 @@
                                 $id = $i['guru_id'];
                                 $nip = $i['guru_nip'];
                                 $nama = $i['guru_nama'];
-                                $jenkel = $i['guru_jenkel'];
-                                $tmp_lahir = $i['guru_tmp_lahir'];
-                                $tgl_lahir = $i['guru_tgl_lahir'];
-                                $mapel = $i['guru_mapel'];
                                 $photo = $i['guru_photo'];
+                                $jabatan = $i['jabatan'];
 
                             ?>
                                 <tr>
                                     <?php if (empty($photo)) : ?>
-                                        <td><img class="img-thumbnail" src="<?php echo base_url() . 'assets/images/user_blank.png'; ?>"></td>
+                                        <td class="text-center"><img class="img-thumbnail" src="<?php echo base_url() . 'assets/images/user_blank.png'; ?>" width="200"></td>
                                     <?php else : ?>
-                                        <td><img class="img-thumbnail" src="<?php echo base_url() . 'assets/images/' . $photo; ?>"></td>
+                                        <td class="text-center"><img class="img-thumbnail" src="<?php echo base_url() . 'assets/images/' . $photo; ?>" width="200"></td>
                                     <?php endif; ?>
-                                    <td><?php echo $nip; ?></td>
+                                    <td><?php echo empty($nip) ? '-' : $nip; ?></td>
                                     <td><?php echo $nama; ?></td>
-                                    <td><?php echo $tmp_lahir . ', ' . $tgl_lahir; ?></td>
-                                    <?php if ($jenkel == 'L') : ?>
-                                        <td>Laki-Laki</td>
-                                    <?php else : ?>
-                                        <td>Perempuan</td>
-                                    <?php endif; ?>
-                                    <td><?php echo $mapel; ?></td>
+                                    <td><?php echo $jabatan; ?></td>
                                     <td style="text-align:right;">
 
 
@@ -105,7 +94,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><span class="fa fa-close"></span></span></button>
-                    <h4 class="modal-title" id="myModalLabel">Add Guru</h4>
+                    <h4 class="modal-title" id="myModalLabel">Add Staff / Guru</h4>
                 </div>
                 <form class="form-horizontal" action="<?php echo base_url() . 'admin/guru/simpan_guru' ?>" method="post" enctype="multipart/form-data">
                     <div class="modal-body">
@@ -113,7 +102,7 @@
                         <div class="form-group">
                             <label for="inputUserName" class="col-sm-4 control-label">NIP</label>
                             <div class="col-sm-7">
-                                <input type="text" name="xnip" class="form-control" id="inputUserName" placeholder="NIP" required>
+                                <input type="text" name="xnip" class="form-control" id="inputUserName" placeholder="NIP">
                             </div>
                         </div>
 
@@ -125,37 +114,9 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="inputUserName" class="col-sm-4 control-label">Jenis Kelamin</label>
+                            <label for="inputUserName" class="col-sm-4 control-label">Jabatan</label>
                             <div class="col-sm-7">
-                                <div class="radio radio-info radio-inline">
-                                    <input type="radio" id="inlineRadio1" value="L" name="xjenkel" checked>
-                                    <label for="inlineRadio1"> Laki-Laki </label>
-                                </div>
-                                <div class="radio radio-info radio-inline">
-                                    <input type="radio" id="inlineRadio1" value="P" name="xjenkel">
-                                    <label for="inlineRadio2"> Perempuan </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="inputUserName" class="col-sm-4 control-label">Tempat Lahir</label>
-                            <div class="col-sm-7">
-                                <input type="text" name="xtmp_lahir" class="form-control" id="inputUserName" placeholder="Tempat Lahir" required>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="inputUserName" class="col-sm-4 control-label">Tanggal Lahir</label>
-                            <div class="col-sm-7">
-                                <input type="text" name="xtgl_lahir" class="form-control" id="inputUserName" placeholder="Contoh: 25 September 1993" required>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="inputUserName" class="col-sm-4 control-label">Mata Pelajaran</label>
-                            <div class="col-sm-7">
-                                <input type="text" name="xmapel" class="form-control" id="inputUserName" placeholder="Contoh: PPKN, Matematika" required>
+                                <input type="text" name="xjabatan" class="form-control" id="inputUserName" placeholder="Contoh: Guru, Staff" required>
                             </div>
                         </div>
 
@@ -182,10 +143,7 @@
         $id = $i['guru_id'];
         $nip = $i['guru_nip'];
         $nama = $i['guru_nama'];
-        $jenkel = $i['guru_jenkel'];
-        $tmp_lahir = $i['guru_tmp_lahir'];
-        $tgl_lahir = $i['guru_tgl_lahir'];
-        $mapel = $i['guru_mapel'];
+        $jabatan = $i['jabatan'];
         $photo = $i['guru_photo'];
     ?>
 
@@ -203,7 +161,7 @@
                             <div class="form-group">
                                 <label for="inputUserName" class="col-sm-4 control-label">NIP</label>
                                 <div class="col-sm-7">
-                                    <input type="text" name="xnip" value="<?php echo $nip; ?>" class="form-control" id="inputUserName" placeholder="NIP" required>
+                                    <input type="text" name="xnip" value="<?php echo $nip; ?>" class="form-control" id="inputUserName" placeholder="NIP">
                                 </div>
                             </div>
 
@@ -215,48 +173,9 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="inputUserName" class="col-sm-4 control-label">Jenis Kelamin</label>
+                                <label for="inputUserName" class="col-sm-4 control-label">Jabatan</label>
                                 <div class="col-sm-7">
-                                    <?php if ($jenkel == 'L') : ?>
-                                        <div class="radio radio-info radio-inline">
-                                            <input type="radio" id="inlineRadio1" value="L" name="xjenkel" checked>
-                                            <label for="inlineRadio1"> Laki-Laki </label>
-                                        </div>
-                                        <div class="radio radio-info radio-inline">
-                                            <input type="radio" id="inlineRadio1" value="P" name="xjenkel">
-                                            <label for="inlineRadio2"> Perempuan </label>
-                                        </div>
-                                    <?php else : ?>
-                                        <div class="radio radio-info radio-inline">
-                                            <input type="radio" id="inlineRadio1" value="L" name="xjenkel">
-                                            <label for="inlineRadio1"> Laki-Laki </label>
-                                        </div>
-                                        <div class="radio radio-info radio-inline">
-                                            <input type="radio" id="inlineRadio1" value="P" name="xjenkel" checked>
-                                            <label for="inlineRadio2"> Perempuan </label>
-                                        </div>
-                                    <?php endif; ?>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="inputUserName" class="col-sm-4 control-label">Tempat Lahir</label>
-                                <div class="col-sm-7">
-                                    <input type="text" name="xtmp_lahir" value="<?php echo $tmp_lahir; ?>" class="form-control" id="inputUserName" placeholder="Tempat Lahir" required>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="inputUserName" class="col-sm-4 control-label">Tanggal Lahir</label>
-                                <div class="col-sm-7">
-                                    <input type="text" name="xtgl_lahir" value="<?php echo $tgl_lahir; ?>" class="form-control" id="inputUserName" placeholder="Contoh: 25 September 1993" required>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="inputUserName" class="col-sm-4 control-label">Mata Pelajaran</label>
-                                <div class="col-sm-7">
-                                    <input type="text" name="xmapel" value="<?php echo $mapel; ?>" class="form-control" id="inputUserName" placeholder="Contoh: PPKN, Matematika" required>
+                                    <input type="text" name="xjabatan" value="<?php echo $jabatan; ?>" class="form-control" id="inputUserName" placeholder="Contoh: PPKN, Matematika" required>
                                 </div>
                             </div>
 
@@ -283,10 +202,7 @@
         $id = $i['guru_id'];
         $nip = $i['guru_nip'];
         $nama = $i['guru_nama'];
-        $jenkel = $i['guru_jenkel'];
-        $tmp_lahir = $i['guru_tmp_lahir'];
-        $tgl_lahir = $i['guru_tgl_lahir'];
-        $mapel = $i['guru_mapel'];
+        $jabatan = $i['jabatan'];
         $photo = $i['guru_photo'];
     ?>
         <!--Modal Hapus Pengguna-->

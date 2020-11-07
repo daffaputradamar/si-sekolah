@@ -24,7 +24,8 @@
                                             <li><a href="<?php echo site_url('about'); ?>">Tentang Sekolah</a></li>
                                             <li><a href="<?php echo site_url('visi_misi'); ?>">Visi Misi</a></li>
                                             <li><a href="<?php echo site_url('kepsek'); ?>">Kepala Sekolah</a></li>
-                                            <li><a href="<?php echo site_url('guru'); ?>">Daftar Guru</a></li>
+                                            <li><a href="<?php echo site_url('guru'); ?>">Daftar Guru & Staf</a></li>
+                                            <li><a href="<?php echo site_url('siswa'); ?>">Daftar Siswa</a></li>
                                             <!-- <li><a href="<?php echo site_url('contact'); ?>">Kontak Kami</a></li> -->
                                         </ul>
                                     </li>
