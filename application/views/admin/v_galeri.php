@@ -34,7 +34,6 @@
             <thead>
               <tr>
                 <th>Gambar</th>
-                <th>Judul</th>
                 <th>Tanggal</th>
                 <th>Album</th>
                 <th>Author</th>
@@ -47,7 +46,6 @@
               foreach ($data->result_array() as $i) :
                 $no++;
                 $galeri_id = $i['galeri_id'];
-                $galeri_judul = $i['galeri_judul'];
                 $galeri_tanggal = $i['tanggal'];
                 $galeri_author = $i['galeri_author'];
                 $galeri_gambar = $i['galeri_gambar'];
@@ -57,7 +55,6 @@
               ?>
                 <tr>
                   <td><img src="<?php echo base_url() . 'assets/images/' . $galeri_gambar; ?>" style="width:80px;"></td>
-                  <td><?php echo $galeri_judul; ?></td>
                   <td><?php echo $galeri_tanggal; ?></td>
                   <td><?php echo $galeri_album_nama; ?></td>
                   <td><?php echo $galeri_author; ?></td>
@@ -103,13 +100,6 @@
           <div class="modal-body">
 
             <div class="form-group">
-              <label for="inputUserName" class="col-sm-4 control-label">Judul</label>
-              <div class="col-sm-7">
-                <input type="text" name="xjudul" class="form-control" id="inputUserName" placeholder="Judul" required>
-              </div>
-            </div>
-
-            <div class="form-group">
               <label for="inputUserName" class="col-sm-4 control-label">Album</label>
               <div class="col-sm-7">
 
@@ -150,7 +140,6 @@
   <!--Modal Edit Album-->
   <?php foreach ($data->result_array() as $i) :
     $galeri_id = $i['galeri_id'];
-    $galeri_judul = $i['galeri_judul'];
     $galeri_tanggal = $i['tanggal'];
     $galeri_author = $i['galeri_author'];
     $galeri_gambar = $i['galeri_gambar'];
@@ -169,82 +158,76 @@
             <div class="modal-body">
               <input type="hidden" name="kode" value="<?php echo $galeri_id; ?>" />
               <input type="hidden" value="<?php echo $galeri_gambar; ?>" name="gambar">
-              <div class="form-group">
-                <label for="inputUserName" class="col-sm-4 control-label">Judul</label>
-                <div class="col-sm-7">
-                  <input type="text" name="xjudul" class="form-control" value="<?php echo $galeri_judul; ?>" id="inputUserName" placeholder="Judul" required>
-                </div>
-              </div>
-
-              <div class="form-group">
-                <label for="inputUserName" class="col-sm-4 control-label">Album</label>
-                <div class="col-sm-7">
-
-                  <select class="form-control" name="xalbum" style="width: 100%;" required>
-                    <option value="">-Pilih-</option>
-                    <?php
-                    foreach ($alb->result_array() as $a) {
-                      $alb_id = $a['album_id'];
-                      $alb_nama = $a['album_nama'];
-                      if ($galeri_album_id == $alb_id)
-                        echo "<option value='$alb_id' selected>$alb_nama</option>";
-                      else
-                        echo "<option value='$alb_id'>$alb_nama</option>";
-                    } ?>
-                  </select>
-                </div>
-              </div>
-
-              <div class="form-group">
-                <label for="inputUserName" class="col-sm-4 control-label">Photo</label>
-                <div class="col-sm-7">
-                  <input type="file" name="filefoto" />
-                </div>
-              </div>
-
             </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default btn-flat" data-dismiss="modal">Close</button>
-              <button type="submit" class="btn btn-primary btn-flat" id="simpan">Simpan</button>
+
+            <div class="form-group">
+              <label for="inputUserName" class="col-sm-4 control-label">Album</label>
+              <div class="col-sm-7">
+
+                <select class="form-control" name="xalbum" style="width: 100%;" required>
+                  <option value="">-Pilih-</option>
+                  <?php
+                  foreach ($alb->result_array() as $a) {
+                    $alb_id = $a['album_id'];
+                    $alb_nama = $a['album_nama'];
+                    if ($galeri_album_id == $alb_id)
+                      echo "<option value='$alb_id' selected>$alb_nama</option>";
+                    else
+                      echo "<option value='$alb_id'>$alb_nama</option>";
+                  } ?>
+                </select>
+              </div>
             </div>
-          </form>
+
+            <div class="form-group">
+              <label for="inputUserName" class="col-sm-4 control-label">Photo</label>
+              <div class="col-sm-7">
+                <input type="file" name="filefoto" />
+              </div>
+            </div>
+
         </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default btn-flat" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary btn-flat" id="simpan">Simpan</button>
+        </div>
+        </form>
       </div>
     </div>
-  <?php endforeach; ?>
-  <!--Modal Edit Album-->
+</div>
+<?php endforeach; ?>
+<!--Modal Edit Album-->
 
-  <?php foreach ($data->result_array() as $i) :
-    $galeri_id = $i['galeri_id'];
-    $galeri_judul = $i['galeri_judul'];
-    $galeri_tanggal = $i['tanggal'];
-    $galeri_author = $i['galeri_author'];
-    $galeri_gambar = $i['galeri_gambar'];
-    $galeri_album_id = $i['galeri_album_id'];
-    $galeri_album_nama = $i['album_nama'];
-  ?>
-    <!--Modal Hapus Pengguna-->
-    <div class="modal fade" id="ModalHapus<?php echo $galeri_id; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><span class="fa fa-close"></span></span></button>
-            <h4 class="modal-title" id="myModalLabel">Hapus Photo</h4>
+<?php foreach ($data->result_array() as $i) :
+  $galeri_id = $i['galeri_id'];
+  $galeri_tanggal = $i['tanggal'];
+  $galeri_author = $i['galeri_author'];
+  $galeri_gambar = $i['galeri_gambar'];
+  $galeri_album_id = $i['galeri_album_id'];
+  $galeri_album_nama = $i['album_nama'];
+?>
+  <!--Modal Hapus Pengguna-->
+  <div class="modal fade" id="ModalHapus<?php echo $galeri_id; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><span class="fa fa-close"></span></span></button>
+          <h4 class="modal-title" id="myModalLabel">Hapus Photo</h4>
+        </div>
+        <form class="form-horizontal" action="<?php echo base_url() . 'admin/galeri/hapus_galeri' ?>" method="post" enctype="multipart/form-data">
+          <div class="modal-body">
+            <input type="hidden" name="kode" value="<?php echo $galeri_id; ?>" />
+            <input type="hidden" value="<?php echo $galeri_gambar; ?>" name="gambar">
+            <input type="hidden" value="<?php echo $galeri_album_id; ?>" name="album">
+            <p>Apakah Anda yakin mau menghapus Posting ini ?</p>
+
           </div>
-          <form class="form-horizontal" action="<?php echo base_url() . 'admin/galeri/hapus_galeri' ?>" method="post" enctype="multipart/form-data">
-            <div class="modal-body">
-              <input type="hidden" name="kode" value="<?php echo $galeri_id; ?>" />
-              <input type="hidden" value="<?php echo $galeri_gambar; ?>" name="gambar">
-              <input type="hidden" value="<?php echo $galeri_album_id; ?>" name="album">
-              <p>Apakah Anda yakin mau menghapus Posting <b><?php echo $galeri_judul; ?></b> ?</p>
-
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default btn-flat" data-dismiss="modal">Close</button>
-              <button type="submit" class="btn btn-primary btn-flat" id="simpan">Hapus</button>
-            </div>
-          </form>
-        </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default btn-flat" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary btn-flat" id="simpan">Hapus</button>
+          </div>
+        </form>
       </div>
     </div>
-  <?php endforeach; ?>
+  </div>
+<?php endforeach; ?>

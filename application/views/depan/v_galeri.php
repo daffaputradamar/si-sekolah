@@ -18,7 +18,7 @@
                                     <div class="single-gallery-image" style="background: url(<?php echo base_url() . 'assets/images/' . $row->galeri_gambar; ?>);"></div>
                                 </a>
                             </div> -->
-                            <div class="col-md-4 col-sm-6">
+                            <div class="col-md-4 col-sm-6 mb-3">
                                 <div class="card"">
                                     <img class=" card-img-top" src="<?php echo base_url() . 'assets/images/' . $row->album_cover; ?>" alt="Card image cap">
                                     <div class="card-body">
