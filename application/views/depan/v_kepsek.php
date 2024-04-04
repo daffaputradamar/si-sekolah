@@ -4,13 +4,13 @@
             <div class="col-lg-12">
                 <div class="single_event d-flex align-items-center h-100">
                     <div class="thumb">
-                        <img src="<?php echo base_url(''); ?>style/img/kepsek.jpg" alt="kepala sekolah" class="img-fluid" style="min-width: 300px">
+                        <img src="<?php echo base_url(''); ?>style/img/kepsek2.jpg" alt="kepala sekolah" class="img-fluid" style="min-width: 300px">
                     </div>
                     <div class="event_details_info h-100">
                         <div class="d-flex flex-column h-100">
                             <div class="event_info mb-3">
                                 <h4>SAMBUTAN KEPALA SEKOLAH</h4>
-                                <h3>Tantri Ambarsari, S.Pd., M. Eng</h3>
+                                <h3>Drs. Sukirna</h3>
                             </div>
 
                             <p>

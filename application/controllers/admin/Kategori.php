@@ -23,7 +23,8 @@ class Kategori extends CI_Controller{
 
 	function simpan_kategori(){
 		$kategori=strip_tags($this->input->post('xkategori'));
-		$this->m_kategori->simpan_kategori($kategori);
+		$color=strip_tags($this->input->post('xcolor'));
+		$this->m_kategori->simpan_kategori($kategori, $color);
 		echo $this->session->set_flashdata('msg','success');
 		redirect('admin/kategori');
 	}
@@ -31,7 +32,9 @@ class Kategori extends CI_Controller{
 	function update_kategori(){
 		$kode=strip_tags($this->input->post('kode'));
 		$kategori=strip_tags($this->input->post('xkategori'));
-		$this->m_kategori->update_kategori($kode,$kategori);
+		$color=strip_tags($this->input->post('xcolor'));
+
+		$this->m_kategori->update_kategori($kode,$kategori, $color);
 		echo $this->session->set_flashdata('msg','info');
 		redirect('admin/kategori');
 	}

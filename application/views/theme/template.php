@@ -13,6 +13,8 @@
     <!-- Place favicon.ico in the root directory -->
 
     <!-- CSS here -->
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+    
     <link rel="stylesheet" href="<?php echo base_url(''); ?>style/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?php echo base_url(''); ?>style/css/owl.carousel.min.css">
     <link rel="stylesheet" href="<?php echo base_url(''); ?>style/css/magnific-popup.css">
@@ -23,6 +25,8 @@
     <link rel="stylesheet" href="<?php echo base_url(''); ?>style/css/gijgo.css">
     <link rel="stylesheet" href="<?php echo base_url(''); ?>style/css/animate.css">
     <link rel="stylesheet" href="<?php echo base_url(''); ?>style/css/slicknav.css">
+    <link rel="stylesheet" href="<?php echo base_url(''); ?>style/css/slick.css">
+    <link rel="stylesheet" href="<?php echo base_url(''); ?>style/css/slick-theme.css">
     <link rel="stylesheet" href="<?php echo base_url(''); ?>style/css/style.css">
     <link href="<?php echo base_url() . 'theme/css/dataTables.bootstrap4.min.css' ?>" rel="stylesheet">
     <!-- <link rel="stylesheet" href="css/responsive.css"> -->

@@ -22,7 +22,7 @@ class M_agenda extends CI_Model{
 
 	//front-end
 	function get_agenda_home(){
-		$hsl=$this->db->query("SELECT tbl_agenda.*,DATE_FORMAT(agenda_tanggal,'%d/%m/%Y') AS tanggal FROM tbl_agenda ORDER BY agenda_id DESC limit 3");
+		$hsl=$this->db->query("SELECT tbl_agenda.* FROM tbl_agenda ORDER BY agenda_id DESC limit 4");
 		return $hsl;
 	}
 	function agenda(){

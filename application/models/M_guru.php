@@ -8,6 +8,12 @@ class M_guru extends CI_Model
 		return $hsl;
 	}
 
+	function get_guru_home()
+	{
+		$hsl = $this->db->query("SELECT * FROM tbl_guru LIMIT 10");
+		return $hsl;
+	}
+
 	function simpan_guru($nip, $nama, $photo, $jabatan)
 	{
 		$hsl = $this->db->query("INSERT INTO tbl_guru (guru_nip,guru_nama,guru_photo,jabatan) VALUES ('$nip','$nama','$photo','$jabatan')");

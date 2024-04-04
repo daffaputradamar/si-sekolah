@@ -38,13 +38,6 @@
                             </div>
                         </div>
                         <div class="media contact-info">
-                            <span class="contact-info__icon"><i class="ti-tablet"></i></span>
-                            <div class="media-body">
-
-                                <p>Hub : 0812 3386 1720 </p>
-                            </div>
-                        </div>
-                        <div class="media contact-info">
                             <span class="contact-info__icon"><i class="ti-email"></i></span>
                             <div class="media-body">
 
@@ -116,6 +109,7 @@
 <script src="<?php echo base_url(''); ?>style/js/jquery.magnific-popup.min.js"></script>
 <script src="<?php echo base_url(''); ?>style/js/plugins.js"></script>
 <script src="<?php echo base_url(''); ?>style/js/gijgo.min.js"></script>
+<script src="<?php echo base_url(''); ?>style/js/slick.min.js"></script>
 
 <!--contact js-->
 <script src="<?php echo base_url(''); ?>style/js/contact.js"></script>
@@ -125,6 +119,8 @@
 <script src="<?php echo base_url(''); ?>style/js/mail-script.js"></script>
 <script src="<?php echo base_url() . 'theme/js/jquery.dataTables.min.js' ?>"></script>
 <script src="<?php echo base_url() . 'theme/js/dataTables.bootstrap4.min.js' ?>"></script>
+
+
 <script>
     $(document).ready(function() {
         $('#display').DataTable();

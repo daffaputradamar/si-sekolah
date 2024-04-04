@@ -7,6 +7,18 @@ class M_tulisan extends CI_Model
 		$hsl = $this->db->query("SELECT tbl_tulisan.*,DATE_FORMAT(tulisan_tanggal,'%d/%m/%Y') AS tanggal FROM tbl_tulisan ORDER BY tulisan_id DESC");
 		return $hsl;
 	}
+
+	function get_all_tulisan_by_category($kategori_id)
+	{
+		$sql = "SELECT tbl_tulisan.*, color_type, DATE_FORMAT(tulisan_tanggal,'%d/%m/%Y') AS tanggal 
+				FROM tbl_tulisan 
+				JOIN tbl_kategori ON tulisan_kategori_id = kategori_id
+				WHERE tulisan_kategori_id = ? 
+				ORDER BY tulisan_id DESC LIMIT 6";
+		$hsl = $this->db->query($sql, array($kategori_id));
+		return $hsl;
+	}
+
 	function simpan_tulisan($judul, $isi, $kategori_id, $kategori_nama, $imgslider, $user_id, $user_nama, $gambar, $slug)
 	{
 		$hsl = $this->db->query("insert into tbl_tulisan(tulisan_judul,tulisan_isi,tulisan_kategori_id,tulisan_kategori_nama,tulisan_img_slider,tulisan_pengguna_id,tulisan_author,tulisan_gambar,tulisan_slug) values ('$judul','$isi','$kategori_id','$kategori_nama','$imgslider','$user_id','$user_nama','$gambar','$slug')");
@@ -41,7 +53,7 @@ class M_tulisan extends CI_Model
 	}
 	function get_berita_home()
 	{
-		$hsl = $this->db->query("SELECT tbl_tulisan.*,DATE_FORMAT(tulisan_tanggal,'%d/%m/%Y') AS tanggal FROM tbl_tulisan ORDER BY tulisan_id DESC limit 4");
+		$hsl = $this->db->query("SELECT tbl_tulisan.*, color_type,DATE_FORMAT(tulisan_tanggal,'%d/%m/%Y') AS tanggal FROM tbl_tulisan JOIN tbl_kategori ON tulisan_kategori_id = kategori_id ORDER BY tulisan_id DESC limit 9");
 		return $hsl;
 	}
 

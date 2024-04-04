@@ -65,6 +65,27 @@ autoplaySpeed: 800,
 });
 
 
+$('.slick-carousel').slick({
+  dots: true,
+  infinite: false,
+  speed: 300,
+  slidesToShow: 1,
+  adaptiveHeight: true,
+  accessibility: false
+});
+
+$('.slick-carousel-teacher').slick({
+  infinite: false,
+  arrows: false,
+  dots:false,
+  speed: 300,
+  slidesToShow: 1,
+  adaptiveHeight: true,
+  accessibility: false,
+
+});
+
+
 // for filter
   // init Isotope
   var $grid = $('.grid').isotope({

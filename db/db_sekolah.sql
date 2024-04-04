@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Oct 23, 2020 at 08:56 AM
--- Server version: 10.3.16-MariaDB
--- PHP Version: 7.3.7
+-- Host: localhost:8889
+-- Generation Time: Apr 26, 2023 at 01:47 PM
+-- Server version: 5.7.34
+-- PHP Version: 8.0.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -31,8 +30,8 @@ SET time_zone = "+00:00";
 CREATE TABLE `tbl_agenda` (
   `agenda_id` int(11) NOT NULL,
   `agenda_nama` varchar(200) DEFAULT NULL,
-  `agenda_tanggal` timestamp NULL DEFAULT current_timestamp(),
-  `agenda_deskripsi` text DEFAULT NULL,
+  `agenda_tanggal` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `agenda_deskripsi` text,
   `agenda_mulai` date DEFAULT NULL,
   `agenda_selesai` date DEFAULT NULL,
   `agenda_tempat` varchar(90) DEFAULT NULL,
@@ -57,10 +56,10 @@ INSERT INTO `tbl_agenda` (`agenda_id`, `agenda_nama`, `agenda_tanggal`, `agenda_
 CREATE TABLE `tbl_album` (
   `album_id` int(11) NOT NULL,
   `album_nama` varchar(50) DEFAULT NULL,
-  `album_tanggal` timestamp NULL DEFAULT current_timestamp(),
+  `album_tanggal` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `album_pengguna_id` int(11) DEFAULT NULL,
   `album_author` varchar(60) DEFAULT NULL,
-  `album_count` int(11) DEFAULT 0,
+  `album_count` int(11) DEFAULT '0',
   `album_cover` varchar(40) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -82,7 +81,7 @@ CREATE TABLE `tbl_bukutamu` (
   `id_tamu` int(11) NOT NULL,
   `nama_tamu` varchar(100) NOT NULL,
   `pesan_tamu` text NOT NULL,
-  `tanggal_tamu` timestamp NOT NULL DEFAULT current_timestamp()
+  `tanggal_tamu` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -103,10 +102,10 @@ INSERT INTO `tbl_bukutamu` (`id_tamu`, `nama_tamu`, `pesan_tamu`, `tanggal_tamu`
 CREATE TABLE `tbl_files` (
   `file_id` int(11) NOT NULL,
   `file_judul` varchar(120) DEFAULT NULL,
-  `file_deskripsi` text DEFAULT NULL,
-  `file_tanggal` timestamp NULL DEFAULT current_timestamp(),
+  `file_deskripsi` text,
+  `file_tanggal` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `file_oleh` varchar(60) DEFAULT NULL,
-  `file_download` int(11) DEFAULT 0,
+  `file_download` int(11) DEFAULT '0',
   `file_data` varchar(120) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -126,7 +125,7 @@ INSERT INTO `tbl_files` (`file_id`, `file_judul`, `file_deskripsi`, `file_tangga
 CREATE TABLE `tbl_galeri` (
   `galeri_id` int(11) NOT NULL,
   `galeri_judul` varchar(60) DEFAULT NULL,
-  `galeri_tanggal` timestamp NULL DEFAULT current_timestamp(),
+  `galeri_tanggal` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `galeri_gambar` varchar(40) DEFAULT NULL,
   `galeri_album_id` int(11) DEFAULT NULL,
   `galeri_pengguna_id` int(11) DEFAULT NULL,
@@ -174,16 +173,17 @@ CREATE TABLE `tbl_guru` (
   `guru_tgl_lahir` varchar(80) DEFAULT NULL,
   `guru_mapel` varchar(120) DEFAULT NULL,
   `guru_photo` varchar(40) DEFAULT NULL,
-  `guru_tgl_input` timestamp NULL DEFAULT current_timestamp()
+  `guru_tgl_input` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `jabatan` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tbl_guru`
 --
 
-INSERT INTO `tbl_guru` (`guru_id`, `guru_nip`, `guru_nama`, `guru_jenkel`, `guru_tmp_lahir`, `guru_tgl_lahir`, `guru_mapel`, `guru_photo`, `guru_tgl_input`) VALUES
-(10, '-', 'Guru, S.pd', 'L', 'Klaten', '14 Maret 1990', 'Matematika', NULL, '2020-10-23 06:09:37'),
-(11, '123456', 'Dra. Nama Guru', 'P', 'Klaten', '21 September 1995', 'PPKN', '2d3fb2c803c23393c22faa5d0f6a80b5.jpg', '2020-10-23 06:11:52');
+INSERT INTO `tbl_guru` (`guru_id`, `guru_nip`, `guru_nama`, `guru_jenkel`, `guru_tmp_lahir`, `guru_tgl_lahir`, `guru_mapel`, `guru_photo`, `guru_tgl_input`, `jabatan`) VALUES
+(10, '-', 'Guru, S.pd', 'L', 'Klaten', '14 Maret 1990', 'Matematika', NULL, '2020-10-23 06:09:37', 'PPKn'),
+(11, '123456', 'Dra. Nama Guru', 'P', 'Klaten', '21 September 1995', 'PPKN', '2d3fb2c803c23393c22faa5d0f6a80b5.jpg', '2020-10-23 06:11:52', '');
 
 -- --------------------------------------------------------
 
@@ -196,9 +196,9 @@ CREATE TABLE `tbl_inbox` (
   `inbox_nama` varchar(40) DEFAULT NULL,
   `inbox_email` varchar(60) DEFAULT NULL,
   `inbox_kontak` varchar(20) DEFAULT NULL,
-  `inbox_pesan` text DEFAULT NULL,
-  `inbox_tanggal` timestamp NULL DEFAULT current_timestamp(),
-  `inbox_status` int(11) DEFAULT 1 COMMENT '1=Belum dilihat, 0=Telah dilihat'
+  `inbox_pesan` text,
+  `inbox_tanggal` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `inbox_status` int(11) DEFAULT '1' COMMENT '1=Belum dilihat, 0=Telah dilihat'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -221,7 +221,7 @@ INSERT INTO `tbl_inbox` (`inbox_id`, `inbox_nama`, `inbox_email`, `inbox_kontak`
 CREATE TABLE `tbl_kategori` (
   `kategori_id` int(11) NOT NULL,
   `kategori_nama` varchar(30) DEFAULT NULL,
-  `kategori_tanggal` timestamp NULL DEFAULT current_timestamp()
+  `kategori_tanggal` timestamp NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -285,10 +285,10 @@ CREATE TABLE `tbl_komentar` (
   `komentar_nama` varchar(30) DEFAULT NULL,
   `komentar_email` varchar(50) DEFAULT NULL,
   `komentar_isi` varchar(120) DEFAULT NULL,
-  `komentar_tanggal` timestamp NULL DEFAULT current_timestamp(),
+  `komentar_tanggal` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `komentar_status` varchar(2) DEFAULT NULL,
   `komentar_tulisan_id` int(11) DEFAULT NULL,
-  `komentar_parent` int(11) DEFAULT 0
+  `komentar_parent` int(11) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -308,11 +308,11 @@ INSERT INTO `tbl_komentar` (`komentar_id`, `komentar_nama`, `komentar_email`, `k
 
 CREATE TABLE `tbl_log_aktivitas` (
   `log_id` int(11) NOT NULL,
-  `log_nama` text DEFAULT NULL,
-  `log_tanggal` timestamp NULL DEFAULT current_timestamp(),
+  `log_nama` text,
+  `log_tanggal` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `log_ip` varchar(20) DEFAULT NULL,
   `log_pengguna_id` int(11) DEFAULT NULL,
-  `log_icon` blob DEFAULT NULL,
+  `log_icon` blob,
   `log_jenis_icon` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -350,16 +350,16 @@ CREATE TABLE `tbl_pengguna` (
   `pengguna_jenkel` varchar(2) DEFAULT NULL,
   `pengguna_username` varchar(30) DEFAULT NULL,
   `pengguna_password` varchar(35) DEFAULT NULL,
-  `pengguna_tentang` text DEFAULT NULL,
+  `pengguna_tentang` text,
   `pengguna_email` varchar(50) DEFAULT NULL,
   `pengguna_nohp` varchar(20) DEFAULT NULL,
   `pengguna_facebook` varchar(35) DEFAULT NULL,
   `pengguna_twitter` varchar(35) DEFAULT NULL,
   `pengguna_linkdin` varchar(35) DEFAULT NULL,
   `pengguna_google_plus` varchar(35) DEFAULT NULL,
-  `pengguna_status` int(2) DEFAULT 1,
+  `pengguna_status` int(2) DEFAULT '1',
   `pengguna_level` varchar(3) DEFAULT NULL,
-  `pengguna_register` timestamp NULL DEFAULT current_timestamp(),
+  `pengguna_register` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `pengguna_photo` varchar(40) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -379,8 +379,8 @@ INSERT INTO `tbl_pengguna` (`pengguna_id`, `pengguna_nama`, `pengguna_moto`, `pe
 CREATE TABLE `tbl_pengumuman` (
   `pengumuman_id` int(11) NOT NULL,
   `pengumuman_judul` varchar(150) DEFAULT NULL,
-  `pengumuman_deskripsi` text DEFAULT NULL,
-  `pengumuman_tanggal` timestamp NULL DEFAULT current_timestamp(),
+  `pengumuman_deskripsi` text,
+  `pengumuman_tanggal` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `pengumuman_author` varchar(60) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -399,7 +399,7 @@ INSERT INTO `tbl_pengumuman` (`pengumuman_id`, `pengumuman_judul`, `pengumuman_d
 
 CREATE TABLE `tbl_pengunjung` (
   `pengunjung_id` int(11) NOT NULL,
-  `pengunjung_tanggal` timestamp NULL DEFAULT current_timestamp(),
+  `pengunjung_tanggal` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `pengunjung_ip` varchar(40) DEFAULT NULL,
   `pengunjung_perangkat` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -423,7 +423,9 @@ INSERT INTO `tbl_pengunjung` (`pengunjung_id`, `pengunjung_tanggal`, `pengunjung
 (941, '2020-05-04 22:36:09', '::1', 'Chrome'),
 (942, '2020-05-05 21:10:13', '::1', 'Chrome'),
 (943, '2020-05-05 21:32:53', '192.168.43.1', 'Chrome'),
-(944, '2020-10-22 21:32:42', '::1', 'Chrome');
+(944, '2020-10-22 21:32:42', '::1', 'Chrome'),
+(945, '2023-04-24 21:39:36', '::1', 'Chrome'),
+(946, '2023-04-26 13:41:04', '::1', 'Chrome');
 
 -- --------------------------------------------------------
 
@@ -468,7 +470,7 @@ CREATE TABLE `tbl_testimoni` (
   `testimoni_nama` varchar(30) DEFAULT NULL,
   `testimoni_isi` varchar(120) DEFAULT NULL,
   `testimoni_email` varchar(35) DEFAULT NULL,
-  `testimoni_tanggal` timestamp NULL DEFAULT current_timestamp()
+  `testimoni_tanggal` timestamp NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -480,15 +482,15 @@ CREATE TABLE `tbl_testimoni` (
 CREATE TABLE `tbl_tulisan` (
   `tulisan_id` int(11) NOT NULL,
   `tulisan_judul` varchar(100) DEFAULT NULL,
-  `tulisan_isi` text DEFAULT NULL,
-  `tulisan_tanggal` timestamp NULL DEFAULT current_timestamp(),
+  `tulisan_isi` text,
+  `tulisan_tanggal` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `tulisan_kategori_id` int(11) DEFAULT NULL,
   `tulisan_kategori_nama` varchar(30) DEFAULT NULL,
-  `tulisan_views` int(11) DEFAULT 0,
+  `tulisan_views` int(11) DEFAULT '0',
   `tulisan_gambar` varchar(40) DEFAULT NULL,
   `tulisan_pengguna_id` int(11) DEFAULT NULL,
   `tulisan_author` varchar(40) DEFAULT NULL,
-  `tulisan_img_slider` int(2) NOT NULL DEFAULT 0,
+  `tulisan_img_slider` int(2) NOT NULL DEFAULT '0',
   `tulisan_slug` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -500,7 +502,7 @@ INSERT INTO `tbl_tulisan` (`tulisan_id`, `tulisan_judul`, `tulisan_isi`, `tulisa
 (20, 'SEJUMLAH PESERTA DIDIK SMAN 78 MASUK PTN MELALUI JALUR PRESTASI', '<p>Tahun Pelajaran 2018/2019 Sejumlah Peserta didik SMAN 78 Jakarta di terima di perguruan Tinggi Negeri melalui Jalur prestasi, diantaranya masuk melalui jalur Seleksi Nasional Perguruan tinggi Negeri (SNMPTN) berjumlah 58 siswa.</p>\r\n\r\n<p>Mereka merupakan putra putri terbaik yang memiliki prestasi akademik 40% terbaik di sekolah dan terseleksi melalui jalur raport tanpa test. Kampus yang bakal mereka tempati seperti di UI, ITB, UGM, UNJ dan lain sebagainya.</p>\r\n\r\n<p>Selain melalui jalur SNMPTN ada juga sebanyak 34 siswa dari SMAN 78 Jakarta juga diterima di jalur prestasi dan pemerataan kesempatan Belajar Universitas Indonesia (PPKB Paralel UI) yaitu salah satu jalur penerimaan yang di selenggarakan oleh UI yang menggunakan nilai raport tanpa test untuk siswa-siswi yang berminat melanjutkan pendidikan tingginya di Universitas Indonesia.</p>\r\n\r\n<p>Sedangkan 1 siswa SMAN 78 atas nama Rachmadana Fajri Majid juga merupakan salah satu siswa yang diterima di UI melalui jalur Talent Scouting, yaitu satu jalauryang diselenggarakan oleh kampus UI melalui jalur raport tanpa test untuk program Kleas Internasional.</p>\r\n\r\n<p>Satu hal lagi yang juga patut kita syukuri adalah Beberapa siswa SMAN 78 juga telah diterima di perguruan tinggi luar Negeri seperti Jepang, Kanada, dan belanda, baik melalaui jalur tes maupun beasiswa yang diselenggarakan oleh Pihak Universitas di Luar Negeri.</p>\r\n\r\n<p>Proses seleksi yang harus mereka lewati tidak hanya melalui nilai prestasi akademik tetapi juga prestasi non akademik, Kemampuan bahasa asing yang dibuktikan dengan sertifikat, penulisan Essay dan juga wawancara. Siswa-siswi tidak hanya berkompetisi dengan siswa dari dalam negeri saja tetapi mereka juga harus bersaing dengan pelajar seluruh dunia. Semoga sukses.</p>\r\n', '2020-02-05 09:24:42', 1, 'Pendidikan', 29, '4add43a5d93fc3ba8a81869127e11f99.jpg', 1, 'Muris Studio', 0, 'sejumlah-peserta-didik-sman-78-masuk-ptn-melalui-jalur-prestasi'),
 (22, 'UPACARA HARI LAHIR PANCASILA 1 JUNI DI SMAN 78 JAKARTA BERLANGSUNG KHIDMAD', '<p>Hari Sabtu, 1 Juni 2019 bertepatan dengan 27 Ramadhan 1440 H, SMA Negeri 78 Jakarta melaksanakan Upacara hari kelahiran Pancasila bertempat di lapangan sekolah.</p>\r\n\r\n<p>Ada yang menarik dari upacara kali ini karena pertama: bertepatan dengan bulan suci Ramadhan hari yang ke 27 dan beberapa guru maupun karyawan ada yang sudah pulang kampung halaman dalam menyambut hari raya Idul Fitri, kedua : Kepala sekolah meminta agar yang sudah pulang kampung ikut melaksanakan upacara di wilayah masing-masing dengan bergabung ke sekolah atau instansi terdekat.</p>\r\n\r\n<p>Mantap ternyata integritas tetap terjaga, anjuran dari Bapak Kepala Sekolah (Dr. Saryono, M.Si) dilaksanakan dengan penuh amanah terpantau beberapa guru dan karyawan SMAN 78 melaksanakan Upacara hari lahir pancasila di SMAN 6 Jogjakarta, SMAN 1 Gombong-jateng SMAN 2 PLG, SMAN 1 Leuwiliang Bogor, SMAN 1 Simo Boyolali, SMPN 1 Gombong, dan lain sebagainya. Laporan ini didapat dari bukti fisik berupa foto dan surat keterangan melaksanakan upacara yang ditandatangani oleh kepala sekolahnya.</p>\r\n\r\n<p>Mereka disambut dengan senang hati. Salah satu peserta upacara dari SMAN 78 Jakarta ( Ibu Yuliana Guru Kimia) yang upacara di SMAN 1 Simo Boyolali menuturkan &quot; Kami di sambut dengan sangat welcome, senang sekali rasanya&quot;. Di SMAN 78 Jakarta upacara juga berlangsung dengan khidmad, peserta upacara dari unsur pendidik, tenaga kependidikan dan peserta didik.</p>\r\n\r\n<p>Petugas pembina upacara Kepala Sekolah Dr. Saryono, Msi, petugas lainya dari unsur ekskul Paskib, Ekskul PKS dan Paduan Suara dengan menyanykan lagu Garuda pancasila dan Mars SMAN 78 Jakarta. Dalam sambutannya Kepala sekolah mengatakan &quot; Mari bersama-sama kita semua mengimplementasikan Pancasila dalam kehidupan sehari-hari sebagai wujud kecintaan kita pada NKRI dan Pancasila&quot;.</p>\r\n\r\n<p>&quot;Saya Indonesia&quot; peserta upacara menjawab&quot; Saya Pancasila &quot; kalimat penutup pembina upacara hari kelahiran Pancasila dan juga di akhiri dengan tepuk tangan seluruh peseta upacara. Sekian dan terima kasih.</p>\r\n', '2020-02-05 09:24:42', 3, 'Sains', 9, 'a49888c350ee1037ab856b95ac26aa03.jpg', 1, 'Muris Studio', 0, 'upacara-hari-lahir-pancasila-1-juni-di-sman-78-jakarta-berlangsung-khidmad'),
 (25, 'Membangun Mutu Pendidikan Melalui Kemitraan Sekolah', '<p>Lima hari di Malinau memberikan pengalaman yg menorehkan warna dalam hidupku.<br />\r\nTugas yg diberikan Kemendikbud satu persatu aku tunaikan. Hari pertama kunjungan ke SMAN 1 mendapat sambutan yg hangat penuh persahabatan, didahului upacara bendara dan tarian khas 4 budaya: Tidung,Bugis,Dayak Lundayeh,dan Dayak Kenya. Anak2 yg gagah dan cantik, menyajikan hiburan penuh kegembiraan.</p>\r\n\r\n<p>Hari kedua ke SMAN 3 dan hari ketiga ke SMAN 8 hampir sama tetapi tanpa tarian khas etnis Tidung dan Bugis. Namun tidak mengurangi kesemaraan seremonial pagi itu.</p>\r\n\r\n<p>Segenap warga sekolah tumpah di lapangan merasakan kegembiraan. Supervisi thd 2 guru matematika di dua sekolah yg berbeda memberi informasi bahwa pemerintah tidak boleh merasa lelah untuk terus memberi penguatan tentang konsep pembelajaran abad 21 dg dimensi :4C,Literasi dan Character Building.</p>\r\n\r\n<p>Di hari terakhir supervisi guru matemtika barulah saya mendapakan seorang guru muda, energik,suara lantang, menguasai konsep dan melakukan pendekatan pembelajaran yg mencerdaskan, membangun konsep, dg alat bantu yg kreatif, suasana kelas hidup, dan anak2 bahagia mengikuti pelajaran. Panggilan singkat guru muda tsb Pak Tri (30 ) terlihat menerapkan metode 4C, mengajak anak browsing (literasi), dan mengajak siswa bersyukur atas anugrah yg diberikan Tuhan ( membangun karakter ).</p>\r\n\r\n<p>Pemerintah melalui berbagai program harus terus membangun kompetensi profesional guru. Fokus penguatan tetap metode pada metide pembelajaran abad 21. Kurikulum 2013 dg pendekatan pembelajaran abad 21 diharapkan dpt mencerdaskan anak2 Indonesia.</p>\r\n', '2020-02-05 09:24:42', 1, 'Pendidikan', 26, '67b03f7b75700396f6ca684c052c83a9.jpg', 1, 'Muris Studio', 0, 'membangun-mutu-pendidikan-melalui-kemitraan-sekolah'),
-(27, 'SATU SISWA MENGIKUTI LOMBA', '<p>Lima hari di Malinau memberikan pengalaman yg menorehkan warna dalam hidupku.<br />\r\nTugas yg diberikan Kemendikbud satu persatu aku tunaikan. Hari pertama kunjungan ke SMAN 1 mendapat sambutan yg hangat penuh persahabatan, didahului upacara bendara dan tarian khas 4 budaya: Tidung,Bugis,Dayak Lundayeh,dan Dayak Kenya. Anak2 yg gagah dan cantik, menyajikan hiburan penuh kegembiraan.</p>\r\n\r\n<p>Hari kedua ke SMAN 3 dan hari ketiga ke SMAN 8 hampir sama tetapi tanpa tarian khas etnis Tidung dan Bugis. Namun tidak mengurangi kesemaraan seremonial pagi itu.</p>\r\n\r\n<p>Segenap warga sekolah tumpah di lapangan merasakan kegembiraan. Supervisi thd 2 guru matematika di dua sekolah yg berbeda memberi informasi bahwa pemerintah tidak boleh merasa lelah untuk terus memberi penguatan tentang konsep pembelajaran abad 21 dg dimensi :4C,Literasi dan Character Building.</p>\r\n\r\n<p>Di hari terakhir supervisi guru matemtika barulah saya mendapakan seorang guru muda, energik,suara lantang, menguasai konsep dan melakukan pendekatan pembelajaran yg mencerdaskan, membangun konsep, dg alat bantu yg kreatif, suasana kelas hidup, dan anak2 bahagia mengikuti pelajaran. Panggilan singkat guru muda tsb Pak Tri (30 ) terlihat menerapkan metode 4C, mengajak anak browsing (literasi), dan mengajak siswa bersyukur atas anugrah yg diberikan Tuhan ( membangun karakter ).</p>\r\n\r\n<p>Pemerintah melalui berbagai program harus terus membangun kompetensi profesional guru. Fokus penguatan tetap metode pada metide pembelajaran abad 21. Kurikulum 2013 dg pendekatan pembelajaran abad 21 diharapkan dpt mencerdaskan anak2 Indonesia.</p>\r\n', '2020-10-23 06:39:16', 6, 'Prestasi', 1, '589ce96bc3e4548fefd18b6a8ff48d58.jpg', 2, 'Administrator', 0, 'satu-siswa-mengikuti-lomba');
+(27, 'SATU SISWA MENGIKUTI LOMBA', '<p>Lima hari di Malinau memberikan pengalaman yg menorehkan warna dalam hidupku.<br />\r\nTugas yg diberikan Kemendikbud satu persatu aku tunaikan. Hari pertama kunjungan ke SMAN 1 mendapat sambutan yg hangat penuh persahabatan, didahului upacara bendara dan tarian khas 4 budaya: Tidung,Bugis,Dayak Lundayeh,dan Dayak Kenya. Anak2 yg gagah dan cantik, menyajikan hiburan penuh kegembiraan.</p>\r\n\r\n<p>Hari kedua ke SMAN 3 dan hari ketiga ke SMAN 8 hampir sama tetapi tanpa tarian khas etnis Tidung dan Bugis. Namun tidak mengurangi kesemaraan seremonial pagi itu.</p>\r\n\r\n<p>Segenap warga sekolah tumpah di lapangan merasakan kegembiraan. Supervisi thd 2 guru matematika di dua sekolah yg berbeda memberi informasi bahwa pemerintah tidak boleh merasa lelah untuk terus memberi penguatan tentang konsep pembelajaran abad 21 dg dimensi :4C,Literasi dan Character Building.</p>\r\n\r\n<p>Di hari terakhir supervisi guru matemtika barulah saya mendapakan seorang guru muda, energik,suara lantang, menguasai konsep dan melakukan pendekatan pembelajaran yg mencerdaskan, membangun konsep, dg alat bantu yg kreatif, suasana kelas hidup, dan anak2 bahagia mengikuti pelajaran. Panggilan singkat guru muda tsb Pak Tri (30 ) terlihat menerapkan metode 4C, mengajak anak browsing (literasi), dan mengajak siswa bersyukur atas anugrah yg diberikan Tuhan ( membangun karakter ).</p>\r\n\r\n<p>Pemerintah melalui berbagai program harus terus membangun kompetensi profesional guru. Fokus penguatan tetap metode pada metide pembelajaran abad 21. Kurikulum 2013 dg pendekatan pembelajaran abad 21 diharapkan dpt mencerdaskan anak2 Indonesia.</p>\r\n', '2020-10-23 06:39:16', 6, 'Prestasi', 1, 'd441947f5b132ccc5b870227f8f82224.jpeg', 2, 'Administrator', 0, 'satu-siswa-mengikuti-lomba');
 
 -- --------------------------------------------------------
 
@@ -709,7 +711,7 @@ ALTER TABLE `tbl_kategori`
 -- AUTO_INCREMENT for table `tbl_kelas`
 --
 ALTER TABLE `tbl_kelas`
-  MODIFY `kelas_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `kelas_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `tbl_komentar`
@@ -745,7 +747,7 @@ ALTER TABLE `tbl_pengumuman`
 -- AUTO_INCREMENT for table `tbl_pengunjung`
 --
 ALTER TABLE `tbl_pengunjung`
-  MODIFY `pengunjung_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=945;
+  MODIFY `pengunjung_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=947;
 
 --
 -- AUTO_INCREMENT for table `tbl_siswa`
