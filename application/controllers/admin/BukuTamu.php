@@ -27,9 +27,10 @@ class BukuTamu extends CI_Controller
     function simpan_pesan()
     {
         $nama_tamu = strip_tags($this->input->post('namatamu'));
+        $telp_tamu = strip_tags($this->input->post('telptamu'));
         $pesan_tamu = strip_tags($this->input->post('pesan'));
 
-        $this->m_bukutamu->simpan_bukutamu($nama_tamu, $pesan_tamu);
+        $this->m_bukutamu->simpan_bukutamu($nama_tamu, $telp_tamu, $pesan_tamu);
 
         echo $this->session->set_flashdata('msg', 'success');
 

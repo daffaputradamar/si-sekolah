@@ -22,10 +22,10 @@ function UR_exists($url)
                 foreach ($berita->result() as $highlight_berita) :
                 ?>
                     <div class="row d-flex align-items-center">
-                        <div class="col-md-7 col-sm-12">
+                        <div class="col-md-8 col-sm-12">
                             <img src="<?php echo UR_exists(base_url() . 'assets/images/' . $highlight_berita->tulisan_gambar) ? base_url() . 'assets/images/' . $highlight_berita->tulisan_gambar : base_url() . 'assets/images/Image_not_available.png'; ?>" alt="<?php echo $highlight_berita->tulisan_judul; ?>" style="border-radius: 12px; min-height: 450px; max-width: 100%; object-fit: cover;">
                         </div>
-                        <div class="col-md-5 col-sm-12">
+                        <div class="col-md-4 col-sm-12">
                             <h3 class="mb-4">
                                 <?= $highlight_berita->tulisan_judul; ?>
                             </h3>
@@ -114,7 +114,7 @@ function UR_exists($url)
                                     <div class="col-12 text-center my-3">
                                         <div class="card">
                                             <div class="card-body">
-                                                <span>Data Tidak dapat ditemukan</span>
+                                                <span>Berita Tidak dapat ditemukan</span>
                                             </div>
                                         </div>
                                     </div>
@@ -193,7 +193,7 @@ function UR_exists($url)
                                 <div class="col-12 text-center my-3">
                                     <div class="card">
                                         <div class="card-body">
-                                            <span>Data Tidak dapat ditemukan</span>
+                                            <span>Pengumuman Tidak dapat ditemukan</span>
                                         </div>
                                     </div>
                                 </div>
@@ -231,7 +231,7 @@ function UR_exists($url)
                                 <div class="col-12 text-center my-3">
                                     <div class="card">
                                         <div class="card-body">
-                                            <span>Data Tidak dapat ditemukan</span>
+                                            <span>Agenda Tidak dapat ditemukan</span>
                                         </div>
                                     </div>
                                 </div>
@@ -240,6 +240,8 @@ function UR_exists($url)
 
                                 foreach ($agenda as $row) :
                                     $date = new DateTime($row->agenda_tanggal);
+                                    $date_agenda1 = new DateTime($row->agenda_mulai);
+                                    $date_agenda2 = new DateTime($row->agenda_selesai);
                                 ?>
                                     <div class="col-md-6">
                                         <div class="card mb-4" style="height: 350px;">
@@ -248,7 +250,7 @@ function UR_exists($url)
                                                     <p class="text-muted"><?= $date->format('d M Y'); ?></p>
                                                     <p class="text-muted"><?= $date->format('H:i'); ?></p>
                                                 </div>
-                                                <h5 class="mt-3"><?= $row->agenda_nama; ?></h5>
+                                                <h5 class="mt-2"><?= $row->agenda_nama; ?></h5>
                                                 <p class="mt-1 text-secondary"><?= $row->agenda_deskripsi ?></p>
                                                 <div class="d-flex flex-column justify-content-center mt-3">
                                                     <span class="d-flex align-items-center">
@@ -263,7 +265,7 @@ function UR_exists($url)
                                                             <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z" />
                                                         </svg>
                                                         </svg>
-                                                        <span class="ml-3 mb-1"><?= $row->agenda_mulai ?> - <?= $row->agenda_selesai ?></span>
+                                                        <span class="ml-3 mb-1"><?= $date_agenda1->format('d M Y') ?> - <?= $date_agenda2->format('d M Y') ?></span>
                                                     </span>
                                                     <span class="d-flex align-items-center">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-alarm" viewBox="0 0 16 16">

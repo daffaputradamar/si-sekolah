@@ -70,7 +70,7 @@ $('.slick-carousel').slick({
   infinite: false,
   speed: 300,
   slidesToShow: 1,
-  adaptiveHeight: true,
+  adaptiveHeight: false,
   accessibility: false
 });
 
@@ -80,7 +80,7 @@ $('.slick-carousel-teacher').slick({
   dots:false,
   speed: 300,
   slidesToShow: 1,
-  adaptiveHeight: true,
+  adaptiveHeight: false,
   accessibility: false,
 
 });
@@ -313,3 +313,9 @@ mailChimp();
         });
 
 })(jQuery);	
+
+
+function goToTop() {
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}

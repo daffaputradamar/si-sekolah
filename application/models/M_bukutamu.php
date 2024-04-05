@@ -7,9 +7,9 @@ class M_bukutamu extends CI_Model
         return $hsl;
     }
 
-    function simpan_bukutamu($nama, $pesan)
+    function simpan_bukutamu($nama, $telp, $pesan)
     {
-        $hsl = $this->db->query("INSERT INTO tbl_bukutamu(nama_tamu,pesan_tamu) VALUES ('$nama','$pesan')");
+        $hsl = $this->db->query("INSERT INTO tbl_bukutamu(nama_tamu, telp_tamu, pesan_tamu) VALUES ('$nama', '$telp', '$pesan')");
         return $hsl;
     }
 
