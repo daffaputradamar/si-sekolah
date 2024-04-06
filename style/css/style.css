@@ -7178,3 +7178,17 @@ h6 {
 .form-style {
     font-family: 'Poppins', sans-serif; font-weight: 500;
 }
+
+
+.sub-body {
+    /* sub body */
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
+    /* identical to box height */
+    
+    /* Text */
+    color: #272727;
+}
