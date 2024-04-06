@@ -1,35 +1,21 @@
 <div class="recent_event_area my-5">
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-8 col-md-10">
-                <div class="section_title text-center mb-70">
-                    <h3 class="mb-45">PENGUMUMAN SEKOLAH</h3>
-
-                </div>
+        <h2 class="mb-5">Pengumuman</h2>
+        <div class="row">
+        <?php foreach ($data->result() as $row) : ?>
+            <div class="col-md-12 border-bottom mb-4">
+                <p class="mb-0 d-flex align-items-center">
+                    <span class="border border-dark px-3 py-1" style="border-radius: 18px; font-family: 'Poppins', sans-serif;">
+                        <?= date("d M Y", strtotime($row->pengumuman_tanggal)); ?>
+                    </span>
+                    <span class="ml-2"> <i class="flaticon-clock"></i> <?php echo date("H:i", strtotime($row->pengumuman_tanggal)) . ' WIB'; ?></span> 
+                </p>
+                <h4 class="mt-4" style="font-family: 'Poppins', sans-serif;"><?= $row->pengumuman_judul; ?></h4>
+                <p class="mb-1"><?= $row->pengumuman_deskripsi; ?></p>
             </div>
+            <?php endforeach; ?>
         </div>
-        <div class="row justify-content-center">
-            <div class="col-lg-10">
-
-
-                <?php foreach ($data->result() as $row) : ?>
-                    <div class="single_event d-flex align-items-center">
-                        <div class="date text-center">
-                            <span><?php echo date("d", strtotime($row->pengumuman_tanggal)); ?></span>
-                            <p><?php echo date("M Y", strtotime($row->pengumuman_tanggal)); ?></p>
-                        </div>
-                        <div class="event_info px-5 py-3">
-                            <h4><?php echo $row->pengumuman_judul; ?></h4>
-                            <p><?php echo $row->pengumuman_deskripsi; ?></p>
-                            <p><span> <i class="flaticon-clock"></i> <?php echo date("H:i", strtotime($row->pengumuman_tanggal)) . ' WIB'; ?></span> </p>
-                        </div>
-                    </div>
-                <?php endforeach; ?>
-
-            </div>
-            <div class="col-md-12 text-center">
-                <?php echo $page; ?>
-            </div>
-        </div>
+        
+        <nav class="mb-5"><?php echo $page; ?></nav>
     </div>
 </div>
