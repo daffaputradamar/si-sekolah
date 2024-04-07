@@ -4,21 +4,18 @@ function limit_words($string, $word_limit)
     $words = explode(" ", $string);
     return implode(" ", array_splice($words, 0, $word_limit));
 }
+
+function UR_exists($url)
+{
+    $headers = get_headers($url);
+    return stripos($headers[0], "200 OK") ? true : false;
+}
 ?>
 
 <div class="recent_event_area my-5">
     <div class="container">
-
-
-        <div class="row justify-content-center">
-            <div class="col-lg-8 col-md-10">
-                <div class="section_title text-center">
-                    <h3 class="mb-45">BERITA SEKOLAH</h3>
-                </div>
-            </div>
-        </div>
-
-        <section class="blog_area section-padding">
+    <h2 class="mb-5">Berita Sekolah</h2>
+        <section class="blog_area">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 mb-5 mb-lg-0">
@@ -27,15 +24,10 @@ function limit_words($string, $word_limit)
 
                             <?php echo $this->session->flashdata('msg'); ?>
 
-
-
-
-
-
                             <?php foreach ($data->result() as $row) : ?>
                                 <article class="blog_item">
                                     <div class="blog_item_img">
-                                        <img class="card-img rounded-0" src="<?php echo base_url() . 'assets/images/' . $row->tulisan_gambar; ?>" alt="<?php echo $row->tulisan_judul; ?>">
+                                        <img class="card-img rounded-0" src="<?php echo UR_exists(base_url() . 'assets/images/' . $row->tulisan_gambar) ? base_url() . 'assets/images/' . $row->tulisan_gambar : base_url() . 'assets/images/Image_not_available.png'; ?>" alt="<?php echo $row->tulisan_judul; ?>">
                                         <a href="#" class="blog_item_date">
                                             <h3><?php echo $row->tanggal; ?></h3>
                                             <p></p>
@@ -63,7 +55,7 @@ function limit_words($string, $word_limit)
 
                             <nav class="blog-pagination justify-content-center d-flex">
                                 <?php error_reporting(0);
-                                echo $page; ?>
+echo $page; ?>
                             </nav>
 
                         </div>

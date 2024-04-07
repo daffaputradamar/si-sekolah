@@ -50,7 +50,7 @@ function UR_exists($url)
                 </p>
             </div>
             <div class="col-md-6 mb-3">
-                <img src="<?php echo UR_exists(base_url() . 'assets/images/' . 'b72ea29017f0a9cdc6eba0324f263b92.png') ? base_url() . 'assets/images/' . 'b72ea29017f0a9cdc6eba0324f263b92.png' : base_url() . 'assets/images/Image_not_available.png'; ?>" alt="gambar sekolah" width="550px" height="400px" style="border-radius: 18px; object-fit: cover; box-shadow: 10px -10px 0px 0px rgba(0, 0, 244, 0.15);
+                <img src="<?= UR_exists(base_url() . 'assets/images/' . 'b72ea29017f0a9cdc6eba0324f263b92.png') ? base_url() . 'assets/images/' . 'b72ea29017f0a9cdc6eba0324f263b92.png' : base_url() . 'assets/images/Image_not_available.png'; ?>" alt="gambar sekolah" width="550px" height="400px" style="border-radius: 18px; object-fit: cover; box-shadow: 10px -10px 0px 0px rgba(0, 0, 244, 0.15);
 " class="ml-5">
             </div>
 

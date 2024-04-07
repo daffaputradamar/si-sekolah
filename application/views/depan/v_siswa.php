@@ -1,23 +1,12 @@
 <div class="recent_event_area my-5">
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-8 col-md-10">
-                <div class="section_title text-center mb-70">
-                    <h3 class="mb-45">DAFTAR SISWA</h3>
-
-                </div>
-            </div>
-        </div>
+        <h2 class="mb-5">Daftar Siswa</h2>
         <div class="row justify-content-center">
             <div class="col-lg-12">
-
-
-
-
                 <div class="table-responsive">
-                    <table class="table table-striped" id="display">
+                    <table class="table" id="display">
                         <thead>
-                            <tr>
+                            <tr class="bg-dark text-white">
                                 <th>NIS</th>
                                 <th>Nama</th>
                                 <th>Jenis Kelamin</th>
@@ -51,11 +40,6 @@
                         </tbody>
                     </table>
                 </div>
-
-
-
-
-
             </div>
 
         </div>

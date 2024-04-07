@@ -92,30 +92,30 @@
                 <div class="col-md-4 pl-5">
                     <h4 class="text-light mb-4">Kontak</h4>
                     <div class="d-flex align-items-center">
-                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M5.33341 5.33337H26.6667C28.1334 5.33337 29.3334 6.53337 29.3334 8.00004V24C29.3334 25.4667 28.1334 26.6667 26.6667 26.6667H5.33341C3.86675 26.6667 2.66675 25.4667 2.66675 24V8.00004C2.66675 6.53337 3.86675 5.33337 5.33341 5.33337Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M29.3334 8L16.0001 17.3333L2.66675 8" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-<p class="ml-3 mb-0 text-light">sman1-bayat@sch.id</p>
-                        </div>
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5.33341 5.33337H26.6667C28.1334 5.33337 29.3334 6.53337 29.3334 8.00004V24C29.3334 25.4667 28.1334 26.6667 26.6667 26.6667H5.33341C3.86675 26.6667 2.66675 25.4667 2.66675 24V8.00004C2.66675 6.53337 3.86675 5.33337 5.33341 5.33337Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M29.3334 8L16.0001 17.3333L2.66675 8" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        <p class="ml-3 mb-0 text-light">sman1-bayat@sch.id</p>
+                    </div>
                 </div>
                 <div class="col-md-4">
                     <h4 class="text-light mb-4">Kirim Pesan</h4>
                     <form action="<?php echo base_url() . 'admin/bukutamu/simpan_pesan' ?>" method="post" enctype="multipart/form-data">
-                            <div class="form-group">
-                                <label for="namatamu" class="form-style text-light">Nama <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" id="namatamu" name="namatamu" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="telptamu" class="form-style text-light">Nomor Telepon <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" id="telptamu" name="telptamu" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="pesan" class="form-style text-light">Pesan <span class="text-danger">*</span></label>
-                                <textarea name="pesan" id="pesan" rows="5" class="form-control" required></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-warning btn-block mt-4 form-style" style="border-radius: 30px;">Kirim Pesan</button>
-                        </form>
+                        <div class="form-group">
+                            <label for="namatamu" class="form-style text-light">Nama <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="namatamu" name="namatamu" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="telptamu" class="form-style text-light">Nomor Telepon <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="telptamu" name="telptamu" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="pesan" class="form-style text-light">Pesan <span class="text-danger">*</span></label>
+                            <textarea name="pesan" id="pesan" rows="5" class="form-control" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-warning btn-block mt-4 form-style" style="border-radius: 30px;">Kirim Pesan</button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -181,7 +181,32 @@
 
 <script>
     $(document).ready(function() {
-        $('#display').DataTable();
+        $('#display').DataTable({
+            info: false,
+            language: {
+                search: "",
+                searchPlaceholder: "Cari",
+                paginate: {
+                    next: '&#8594;', // or '→'
+                    previous: '&#8592;' // or '←' 
+                },
+                lengthMenu: 'Manampilkan _MENU_ Data'
+            },
+            layout: {
+                topStart: null,
+                topEnd: 'search',
+                bottomStart: 'paging',
+                bottomEnd: 'pageLength'
+            }
+        });
+
+        $('#display_filter input').removeClass("form-control-sm")
+        $('#display_filter input').addClass("w-75")
+        $('#display_filter label').addClass("w-100 text-right")
+
+        $('.dataTables_paginate.paging_simple_numbers').parent().siblings('.col-sm-12.col-md-5').remove();
+        $('.dataTables_paginate.paging_simple_numbers').parent().removeClass('col-md-7').addClass('col-md-12');
+
     });
 </script>
 <script src="<?php echo base_url(''); ?>style/js/main.js"></script>

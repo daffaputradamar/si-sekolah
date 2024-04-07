@@ -1,12 +1,6 @@
 <div class="recent_event_area my-5">
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-8 col-md-10">
-                <div class="section_title text-center mb-35">
-                    <h3 class="mb-45">GALERI KEGIATAN SEKOLAH</h3>
-                </div>
-            </div>
-        </div>
+    <h2 class="mb-5">Galeri Kegiatan Sekolah</h2>
         <div class="row justify-content-center">
             <div class="col-lg-10">
                 <div class="section-top-border">
