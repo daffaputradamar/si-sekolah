@@ -1,23 +1,21 @@
 <div class="event_details_area my-5">
     <div class="container">
         <div class="row mb-5">
-            <div class="col-md-6">
+            <div class="col-md-6 col-sm-12">
                 <img class="img-fluid w-100" src="<?= base_url() . 'assets/images/visimisi-main.png' ?>" alt="visimisi-main" style="height: 100%; object-fit: cover;border-radius: 4px 24px 4px 24px;">
             </div>
-            <div class="col-md-6">
-                <div class="row mb-4">
-                    <div class="col-md-6">
+            <div class="col-md-6 col-sm-12">
+                <div class="row">
+                    <div class="col-6 my-2">
                         <img class="img-fluid" src="<?= base_url() . 'assets/images/visimisi1.png' ?>" alt="visimisi1" style="height: 200px; object-fit: cover; border-radius: 2px 18px 2px 18px;">
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-6 my-2">
                         <img class="img-fluid" src="<?= base_url() . 'assets/images/visimisi2.png' ?>" alt="visimisi2" style="height: 200px; object-fit: cover; border-radius: 2px 18px 2px 18px;">
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-6 my-2">
                         <img class="img-fluid" src="<?= base_url() . 'assets/images/visimisi3.png' ?>" alt="visimisi3" style="height: 200px; object-fit: cover; border-radius: 2px 18px 2px 18px;">
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-6 my-2">
                         <img class="img-fluid" src="<?= base_url() . 'assets/images/visimisi4.png' ?>" alt="visimisi4" style="height: 200px; object-fit: cover; border-radius: 2px 18px 2px 18px;">
                     </div>
                 </div>

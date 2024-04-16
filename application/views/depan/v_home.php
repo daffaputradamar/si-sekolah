@@ -19,8 +19,8 @@ function UR_exists($url)
             <div class="slick-carousel">
                 <?php
                 $i = 0;
-                foreach ($berita->result() as $highlight_berita) :
-                ?>
+foreach ($berita->result() as $highlight_berita) :
+    ?>
                     <div class="row d-flex align-items-center">
                         <div class="col-md-8 col-sm-12">
                             <img src="<?php echo UR_exists(base_url() . 'assets/images/' . $highlight_berita->tulisan_gambar) ? base_url() . 'assets/images/' . $highlight_berita->tulisan_gambar : base_url() . 'assets/images/Image_not_available.png'; ?>" alt="<?php echo $highlight_berita->tulisan_judul; ?>" style="border-radius: 12px; min-height: 450px; max-width: 100%; object-fit: cover;">
@@ -33,9 +33,9 @@ function UR_exists($url)
                         </div>
                     </div>
                 <?php
-                    $i++;
-                endforeach;
-                ?>
+        $i++;
+endforeach;
+?>
             </div>
         </section>
 
@@ -50,8 +50,7 @@ function UR_exists($url)
                 </p>
             </div>
             <div class="col-md-6 mb-3">
-                <img src="<?= UR_exists(base_url() . 'assets/images/' . 'b72ea29017f0a9cdc6eba0324f263b92.png') ? base_url() . 'assets/images/' . 'b72ea29017f0a9cdc6eba0324f263b92.png' : base_url() . 'assets/images/Image_not_available.png'; ?>" alt="gambar sekolah" width="550px" height="400px" style="border-radius: 18px; object-fit: cover; box-shadow: 10px -10px 0px 0px rgba(0, 0, 244, 0.15);
-" class="ml-5">
+                <!-- <img src="<?= UR_exists(base_url() . 'assets/images/' . 'b72ea29017f0a9cdc6eba0324f263b92.png') ? base_url() . 'assets/images/' . 'b72ea29017f0a9cdc6eba0324f263b92.png' : base_url() . 'assets/images/Image_not_available.png'; ?>" alt="gambar sekolah" width="550px" height="400px" style="border-radius: 18px; object-fit: cover; box-shadow: 10px -10px 0px 0px rgba(0, 0, 244, 0.15);" class="ml-5"> -->
             </div>
 
             <div class="container-image mt-5">
@@ -90,27 +89,27 @@ function UR_exists($url)
             <div>
                 <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                     <?php
-                    $i = 0;
-                    foreach ($kategori->result() as $row) :
-                    ?>
+    $i = 0;
+foreach ($kategori->result() as $row) :
+    ?>
                         <li class="nav-item border">
                             <a class="nav-link font-weight-normal <?= ($i == 0) ? 'active rounded-left' : ''; ?>" id="pills-<?= $row->kategori_id ?>-tab" data-toggle="pill" href="#pills-<?= $row->kategori_id ?>" role="tab" aria-controls="pills-<?= $row->kategori_id ?>" aria-selected="true"><?= $row->kategori_nama ?></a>
                         </li>
                     <?php
-                        $i++;
-                    endforeach;
-                    ?>
+        $i++;
+endforeach;
+?>
                 </ul>
                 <div class="tab-content" id="pills-tabContent">
                     <?php
-                    $i = 0;
-                    foreach ($kategori->result() as $cat) : ?>
+$i = 0;
+foreach ($kategori->result() as $cat) : ?>
                         <div class="tab-pane fade show <?= ($i == 0) ? 'active' : ''; ?>" id="pills-<?= $cat->kategori_id ?>" role="tabpanel" aria-labelledby="pills-<?= $cat->kategori_id ?>-tab">
                             <div class="row">
                                 <?php
-                                $berita_cats = $controller->get_all_tulisan_by_category($cat->kategori_id);
-                                if (empty($berita_cats)) :
-                                ?>
+            $berita_cats = $controller->get_all_tulisan_by_category($cat->kategori_id);
+    if (empty($berita_cats)) :
+        ?>
                                     <div class="col-12 text-center my-3">
                                         <div class="card">
                                             <div class="card-body">
@@ -119,10 +118,10 @@ function UR_exists($url)
                                         </div>
                                     </div>
                                     <?php
-                                else :
+    else :
 
-                                    foreach ($berita_cats as $berita_cat) :
-                                    ?>
+        foreach ($berita_cats as $berita_cat) :
+            ?>
                                         <div class="col-md-4">
                                             <div class="card mb-4" style="height: 450px;">
                                                 <img src="<?php echo UR_exists(base_url() . 'assets/images/' . $berita_cat->tulisan_gambar) ? base_url() . 'assets/images/' . $berita_cat->tulisan_gambar : base_url() . 'assets/images/Image_not_available.png'; ?>" alt="<?php echo $berita_cat->tulisan_judul; ?>" class="card-img-top p-2" style="border-radius: 18px; height: 200px; object-fit: cover;">
@@ -146,14 +145,14 @@ function UR_exists($url)
                                             </div>
                                         </div>
                                 <?php
-                                    endforeach;
-                                endif;
-                                ?>
+        endforeach;
+    endif;
+    ?>
                             </div>
                         </div>
                     <?php $i++;
-                    endforeach;
-                    ?>
+endforeach;
+?>
                 </div>
             </div>
 
@@ -187,9 +186,9 @@ function UR_exists($url)
                     <div class="tab-pane fade show active" id="pills-pengumuman" role="tabpanel" aria-labelledby="pills-pengumuman-tab">
                         <div class="row">
                             <?php
-                            $pengumuman = $pengumuman->result();
-                            if (empty($pengumuman)) :
-                            ?>
+        $pengumuman = $pengumuman->result();
+if (empty($pengumuman)) :
+    ?>
                                 <div class="col-12 text-center my-3">
                                     <div class="card">
                                         <div class="card-body">
@@ -198,11 +197,11 @@ function UR_exists($url)
                                     </div>
                                 </div>
                                 <?php
-                            else :
+else :
 
-                                foreach ($pengumuman as $row) :
-                                    $date = new DateTime($row->pengumuman_tanggal);
-                                ?>
+    foreach ($pengumuman as $row) :
+        $date = new DateTime($row->pengumuman_tanggal);
+        ?>
                                     <div class="col-md-4">
                                         <div class="card mb-4" style="height: 350px;">
                                             <div class="card-body">
@@ -216,18 +215,18 @@ function UR_exists($url)
                                         </div>
                                     </div>
                             <?php
-                                endforeach;
-                            endif;
-                            ?>
+    endforeach;
+endif;
+?>
                         </div>
                     </div>
 
                     <div class="tab-pane fade show" id="pills-agenda" role="tabpanel" aria-labelledby="pills-agenda-tab">
                         <div class="row">
                             <?php
-                            $agenda = $agenda->result();
-                            if (empty($agenda)) :
-                            ?>
+$agenda = $agenda->result();
+if (empty($agenda)) :
+    ?>
                                 <div class="col-12 text-center my-3">
                                     <div class="card">
                                         <div class="card-body">
@@ -236,13 +235,13 @@ function UR_exists($url)
                                     </div>
                                 </div>
                                 <?php
-                            else :
+else :
 
-                                foreach ($agenda as $row) :
-                                    $date = new DateTime($row->agenda_tanggal);
-                                    $date_agenda1 = new DateTime($row->agenda_mulai);
-                                    $date_agenda2 = new DateTime($row->agenda_selesai);
-                                ?>
+    foreach ($agenda as $row) :
+        $date = new DateTime($row->agenda_tanggal);
+        $date_agenda1 = new DateTime($row->agenda_mulai);
+        $date_agenda2 = new DateTime($row->agenda_selesai);
+        ?>
                                     <div class="col-md-6">
                                         <div class="card mb-4" style="height: 350px;">
                                             <div class="card-body">
@@ -280,9 +279,9 @@ function UR_exists($url)
                                         </div>
                                     </div>
                             <?php
-                                endforeach;
-                            endif;
-                            ?>
+    endforeach;
+endif;
+?>
                         </div>
                     </div>
                 </div>
@@ -308,7 +307,7 @@ function UR_exists($url)
             <div class="slick-carousel-teacher" data-slick='{"slidesToShow": 4, "slidesToScroll": 4}'>
                 <?php
                 foreach ($pengajar->result() as $row) :
-                ?>
+                    ?>
                     <div class="card mr-1 border-0 mr-4">
                         <?php if (empty($row->guru_photo)) : ?>
                             <img src="<?php echo base_url() . 'assets/images/blank.png'; ?>" class="card-img-top" alt="<?php echo $row->guru_nama; ?>">
@@ -322,7 +321,7 @@ function UR_exists($url)
                     </div>
                 <?php
                 endforeach;
-                ?>
+?>
             </div>
         </section>
     </div>

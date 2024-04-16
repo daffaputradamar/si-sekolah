@@ -25,7 +25,7 @@
             </div>
         </div>
         <div class="row mt-5">
-            <div class="col-4 mb-3">
+            <div class="col-md-4 col-sm-12 mb-3">
                 <div class="card h-100" style="box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.05);">
                     <div class="card-body d-flex align-items-center justify-content-between" >
                         <img class="img-fluid" alt="education-icon" width="48" height="48" src="<?= base_url() . 'assets/icons/elearning.png' ?>">
@@ -33,7 +33,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-4 mb-3">
+            <div class="col-md-4 col-sm-12 mb-3">
                 <div class="card h-100" style="box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.05);">
                     <div class="card-body d-flex align-items-center justify-content-between" >
                         <img class="img-fluid" alt="education-icon" width="48" height="48" src="<?= base_url() . 'assets/icons/team.png' ?>">
@@ -41,7 +41,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-4 mb-3">
+            <div class="col-md-4 col-sm-12 mb-3">
                 <div class="card h-100" style="box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.05);">
                     <div class="card-body d-flex align-items-center justify-content-between" >
                         <img class="img-fluid" alt="education-icon" width="48" height="48" src="<?= base_url() . 'assets/icons/growth.png' ?>">
@@ -49,7 +49,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-4 mb-3">
+            <div class="col-md-4 col-sm-12 mb-3">
                 <div class="card h-100" style="box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.05);">
                     <div class="card-body d-flex align-items-center justify-content-between" >
                         <img class="img-fluid" alt="education-icon" width="48" height="48" src="<?= base_url() . 'assets/icons/key-person.png' ?>">
@@ -57,7 +57,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-4 mb-3">
+            <div class="col-md-4 col-sm-12 mb-3">
                 <div class="card h-100" style="box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.05);">
                     <div class="card-body d-flex align-items-center justify-content-between" >
                         <img class="img-fluid" alt="education-icon" width="48" height="48" src="<?= base_url() . 'assets/icons/coaching.png' ?>">
@@ -65,7 +65,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-4 mb-3">
+            <div class="col-md-4 col-sm-12 mb-3">
                 <div class="card h-100" style="box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.05);">
                     <div class="card-body d-flex align-items-center justify-content-between" >
                         <img class="img-fluid" alt="education-icon" width="48" height="48" src="<?= base_url() . 'assets/icons/struggle.png' ?>">

@@ -82,7 +82,22 @@ $('.slick-carousel-teacher').slick({
   slidesToShow: 1,
   adaptiveHeight: false,
   accessibility: false,
-
+  responsive: [
+    {
+      breakpoint: 1200,
+      settings: {
+        slidesToShow: 4,
+        slidesToScroll: 4,
+      },
+    },
+    {
+      breakpoint: 1008,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2,
+      },
+    }
+  ]
 });
 
 
