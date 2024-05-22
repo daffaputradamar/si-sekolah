@@ -29,7 +29,7 @@ foreach ($berita->result() as $highlight_berita) :
                             <h3 class="mb-4">
                                 <?= $highlight_berita->tulisan_judul; ?>
                             </h3>
-                            <button class="btn btn-primary px-4" style="border-radius: 18px;">Baca Berita</button>
+                            <a class="btn btn-primary px-4" href="<?= site_url('artikel/' . $highlight_berita->tulisan_slug); ?>" style="border-radius: 18px;">Baca Berita</a>
                         </div>
                     </div>
                 <?php
@@ -135,12 +135,12 @@ foreach ($kategori->result() as $cat) : ?>
                                                         </div>
                                                         <h5><?php echo $berita_cat->tulisan_judul; ?></h5>
                                                     </div>
-                                                    <button class="btn btn-outline-primary btn-sm px-3 mt-3 d-flex align-items-center justify-content-center" style="border-radius: 18px;">
+                                                    <a href="<?php echo site_url('artikel/' . $berita_cat->tulisan_slug); ?>" class="btn btn-outline-primary btn-sm px-3 mt-3 d-flex align-items-center justify-content-center" style="border-radius: 18px;">
                                                         Baca Berita
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-double-right" viewBox="0 0 16 16">
                                                             <path fill-rule="evenodd" d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708" />
                                                             <path fill-rule="evenodd" d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708" />
-                                                        </svg></button>
+                                                        </svg></a>
                                                 </div>
                                             </div>
                                         </div>
